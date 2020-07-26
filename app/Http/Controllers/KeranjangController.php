@@ -21,10 +21,7 @@ class KeranjangController extends Controller
             $jumlah_jual = $checkKeranjang->jumlah + $req->jumlah;
         }
 
-        if($jumlah_jual > $checkStok){
-            Alert::info('Stok Tidak Cukup', 'Info Message');
-            return back();
-        }else{
+        if($req->type == 'pembelian'){
             $check = Keranjang::where('barang_id', $req->barang_id)->where('type', $req->type)->first();
             if($check == null){
                 $s = new Keranjang;
@@ -38,8 +35,26 @@ class KeranjangController extends Controller
                 $s->save();
             }
             return back();
+        }else{
+            if($jumlah_jual > $checkStok){
+                Alert::info('Stok Tidak Cukup', 'Info Message');
+                return back();
+            }else{
+                $check = Keranjang::where('barang_id', $req->barang_id)->where('type', $req->type)->first();
+                if($check == null){
+                    $s = new Keranjang;
+                    $s->barang_id = $req->barang_id;
+                    $s->jumlah = $req->jumlah;
+                    $s->type = $req->type;
+                    $s->save();
+                }else{
+                    $s = $check;
+                    $s->jumlah = $s->jumlah+$req->jumlah;
+                    $s->save();
+                }
+                return back();
+            }
         }
-
     }
 
     public function delete($id)
