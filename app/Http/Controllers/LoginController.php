@@ -13,15 +13,17 @@ class LoginController extends Controller
         $login = request()->input('username');
         $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         //dd($login, $field);
-        if(Auth::attempt([$field => $login, 'password' => request()->password], false)) 
-        {
+        if (Auth::attempt([$field => $login, 'password' => request()->password], false)) {
             return redirect('/home');
-        } 
-        else 
-        {
+        } else {
             Alert::info('Username / Password Salah', 'Info Message');
             //toast('Username / Password Salah', 'warning');
             return back();
         }
+    }
+
+    public function loginhome()
+    {
+        return redirect('/');
     }
 }

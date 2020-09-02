@@ -12,28 +12,28 @@ class BarangController extends Controller
     public function index()
     {
         $data = Barang::all();
-        return view('backend.barang.index',compact('data'));
+        return view('backend.barang.index', compact('data'));
     }
 
     public function add()
     {
         $satuan = Satuan::all();
         $check = Barang::all();
-        if(count($check) == 0){
+        if (count($check) == 0) {
             $kode = '0001';
-        }else{
-            $number = count($check)+1;
-            if(strlen($number) == 1){
-                $kode = '000'.$number;
-            }elseif(strlen($number) == 2){
-                $kode = '00'.$number;
-            }elseif(strlen($number) == 3){
-                $kode = '0'.$number;
-            }elseif(strlen($number) == 4){
+        } else {
+            $number = count($check) + 1;
+            if (strlen($number) == 1) {
+                $kode = '000' . $number;
+            } elseif (strlen($number) == 2) {
+                $kode = '00' . $number;
+            } elseif (strlen($number) == 3) {
+                $kode = '0' . $number;
+            } elseif (strlen($number) == 4) {
                 $kode = $number;
             }
         }
-        return view('backend.barang.add',compact('satuan','kode'));
+        return view('backend.barang.add', compact('satuan', 'kode'));
     }
 
     public function save(Request $req)
@@ -54,9 +54,9 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $satuan = Satuan::all();
-        return view('backend.barang.edit',compact('data','satuan'));
+        return view('backend.barang.edit', compact('data', 'satuan'));
     }
-    
+
     public function update(Request $req, $id)
     {
         $s = Barang::find($id);
@@ -69,7 +69,7 @@ class BarangController extends Controller
         Alert::success('Data Berhasil Di Update', 'Info Message');
         return redirect('/barang');
     }
-    
+
     public function delete($id)
     {
         $delete = Barang::find($id)->delete();

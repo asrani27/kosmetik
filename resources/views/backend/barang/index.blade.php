@@ -36,6 +36,7 @@
                     <th>Stok</th>
                     <th>Harga Beli</th>
                     <th>Harga Jual</th>
+                    <th>Expired</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -52,6 +53,7 @@
                             <td>{{$item->stok}}</td>
                             <td>{{$item->harga_beli}}</td>
                             <td>{{$item->harga_jual}}</td>
+                            <td>{{$item->expired}}</td>
                             <td>
                                 <a href="/barang/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
                                 <a href="/barang/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

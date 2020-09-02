@@ -71,7 +71,6 @@
                         <input type="text" class="form-control" name="stok" value="{{$data->stok}}">
                       </div>
                     </div>
-                    
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
