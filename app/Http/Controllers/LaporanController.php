@@ -15,45 +15,71 @@ class LaporanController extends Controller
     {
         return view('laporan.stok');
     }
+
     public function penjualan()
     {
         return view('laporan.penjualan');
     }
+
     public function pembelian()
     {
         return view('laporan.pembelian');
     }
+
     public function returpenjualan()
     {
         return view('laporan.returpenjualan');
     }
+
     public function returpembelian()
     {
         return view('laporan.returpembelian');
     }
+
     public function printstok()
     {
         $data = Barang::all();
-        return view('print.stok',compact('data'));
+        return view('print.stok', compact('data'));
     }
+
     public function printpenjualan()
     {
         $data = Penjualan::all();
-        return view('print.penjualan',compact('data'));
+        return view('print.penjualan', compact('data'));
     }
+
     public function printpembelian()
     {
         $data = Pembelian::all();
-        return view('print.pembelian',compact('data'));
+        return view('print.pembelian', compact('data'));
     }
+
     public function printreturpenjualan()
     {
         $data = Retur_penjualan::all();
-        return view('print.returpenjualan',compact('data'));
+        return view('print.returpenjualan', compact('data'));
     }
+
     public function printreturpembelian()
     {
         $data = Retur_pembelian::all();
-        return view('print.returpembelian',compact('data'));
+        return view('print.returpembelian', compact('data'));
+    }
+
+    public function laba()
+    {
+        $penjualan = [];
+        $pembelian = [];
+
+        return view('laporan.laba', compact('penjualan', 'pembelian'));
+    }
+
+    public function tampilkanlaba()
+    {
+        $bulan = request('bulan');
+        $tahun = request('tahun');
+        $pembelian = Pembelian::whereMonth('created_at', '=', $bulan)->whereYear('created_at', '=', $tahun)->get();
+        $penjualan = Penjualan::whereMonth('created_at', '=', $bulan)->whereYear('created_at', '=', $tahun)->get();
+        return view('laporan.laba', compact('pembelian', 'penjualan'));
     }
 }
