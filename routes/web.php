@@ -45,6 +45,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/satuan/add', 'SatuanController@save')->name('satuan');
     Route::post('/satuan/edit/{id}', 'SatuanController@update')->name('editsatuan');
 
+
+    Route::get('/kategori', 'KategoriController@index');
+    Route::get('/kategori/add', 'KategoriController@add');
+    Route::get('/kategori/edit/{id}', 'KategoriController@edit');
+    Route::get('/kategori/delete/{id}', 'KategoriController@delete');
+    Route::post('/kategori/add', 'KategoriController@save')->name('kategori');
+    Route::post('/kategori/edit/{id}', 'KategoriController@update')->name('editkategori');
+
+    Route::get('/pengeluaran', 'PengeluaranController@index');
+    Route::get('/pengeluaran/add', 'PengeluaranController@add');
+    Route::get('/pengeluaran/edit/{id}', 'PengeluaranController@edit');
+    Route::get('/pengeluaran/delete/{id}', 'PengeluaranController@delete');
+    Route::post('/pengeluaran/add', 'PengeluaranController@save')->name('pengeluaran');
+    Route::post('/pengeluaran/edit/{id}', 'PengeluaranController@update')->name('editpengeluaran');
+
     Route::get('/supplier', 'SupplierController@index');
     Route::get('/supplier/add', 'SupplierController@add');
     Route::get('/supplier/edit/{id}', 'SupplierController@edit');
@@ -113,4 +128,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/laporan/returpembelian/print', 'LaporanController@printreturpembelian');
     Route::get('/laporan/laba', 'LaporanController@laba');
     Route::get('/laporan/laba/tampilkan', 'LaporanController@tampilkanlaba');
+    Route::get('/laporan/customer', 'LaporanController@customer');
+    Route::get('/laporan/supplier', 'LaporanController@supplier');
+    Route::get('/laporan/pengeluaran', 'LaporanController@pengeluaran');
+    Route::get('/laporan/pengeluaran/print', 'LaporanController@printpengeluaran');
+
+    Route::get('/laporan/customer/print', 'LaporanController@printcustomer');
+    Route::get('/laporan/supplier/print', 'LaporanController@printsupplier');
 });

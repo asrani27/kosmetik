@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Barang;
+use App\Kustomer;
+use App\Supplier;
 use App\Pembelian;
 use App\Penjualan;
+use App\Pengeluaran;
 use App\Retur_pembelian;
 use App\Retur_penjualan;
 use Illuminate\Http\Request;
@@ -24,6 +27,21 @@ class LaporanController extends Controller
     public function pembelian()
     {
         return view('laporan.pembelian');
+    }
+
+    public function customer()
+    {
+        return view('laporan.customer');
+    }
+
+    public function supplier()
+    {
+        return view('laporan.supplier');
+    }
+
+    public function pengeluaran()
+    {
+        return view('laporan.pengeluaran');
     }
 
     public function returpenjualan()
@@ -69,17 +87,38 @@ class LaporanController extends Controller
     public function laba()
     {
         $penjualan = [];
-        $pembelian = [];
+        $pengeluaran = [];
 
-        return view('laporan.laba', compact('penjualan', 'pembelian'));
+        return view('laporan.laba', compact('penjualan', 'pengeluaran'));
     }
 
     public function tampilkanlaba()
     {
         $bulan = request('bulan');
         $tahun = request('tahun');
-        $pembelian = Pembelian::whereMonth('created_at', '=', $bulan)->whereYear('created_at', '=', $tahun)->get();
+        $pengeluaran = Pengeluaran::whereMonth('tanggal', '=', $bulan)->whereYear('tanggal', '=', $tahun)->get();
         $penjualan = Penjualan::whereMonth('created_at', '=', $bulan)->whereYear('created_at', '=', $tahun)->get();
-        return view('laporan.laba', compact('pembelian', 'penjualan'));
+        return view('laporan.laba', compact('pengeluaran', 'penjualan'));
+    }
+
+    public function printcustomer()
+    {
+        $data = Kustomer::all();
+        return view('print.customer', compact('data'));
+    }
+
+    public function printsupplier()
+    {
+        $data = Supplier::all();
+        return view('print.supplier', compact('data'));
+    }
+
+    public function printpengeluaran()
+    {
+        $bulan = request('bulan');
+        $tahun = request('tahun');
+        $data = Pengeluaran::whereMonth('tanggal', '=', $bulan)->whereYear('tanggal', '=', $tahun)->get();
+
+        return view('print.pengeluaran', compact('data'));
     }
 }

@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data Barang</h1>
+            <h1 class="m-0 text-dark">Data Transaksi Pengeluaran</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
           <div class="col-12">
             <div class="card card-outline card-primary">
               <div class="card-header">
-                <a href="/barang/add" class="btn btn-sm btn-primary">Tambah Data</a>
+                <a href="/pengeluaran/add" class="btn btn-sm btn-primary">Tambah Data</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -30,13 +30,9 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Kode Barang</th>
-                    <th>Nama Barang</th>
-                    <th>Satuan</th>
-                    <th>Kategori</th>
-                    <th>Stok</th>
-                    <th>Harga Beli</th>
-                    <th>Harga Jual</th>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
+                    <th>Jumlah Pengeluaran</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -44,23 +40,18 @@
                   $no =1;
                   @endphp
                   <tbody>
-                      @foreach ($data as $item)
+                    @foreach ($data as $item)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$item->kode}}</td>
+                            <td>{{$item->tanggal}}</td>
                             <td>{{$item->nama}}</td>
-                            <td>{{$item->satuan == null ? '':$item->satuan->nama}}</td>
-                            <td>{{$item->kategori == null ? '':$item->kategori->nama}}</td>
-                            <td>{{$item->stok}}</td>
-                            <td>@currency($item->harga_beli)</td>
-                            <td>@currency($item->harga_jual)</td>
+                            <td>@currency($item->jumlah)</td>
                             <td>
-                                <a href="/barang/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
-                                <a href="/barang/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
+                                <a href="/pengeluaran/edit/{{$item->id}}" class="btn btn-xs bg-gradient-warning"><i class="fas fa-edit"></i></a>
+                                <a href="/pengeluaran/delete/{{$item->id}}" class="btn btn-xs bg-gradient-danger" onclick="return confirm('Yakin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
-                      @endforeach
-                    
+                    @endforeach
                   </tbody>
                   
                 </table>

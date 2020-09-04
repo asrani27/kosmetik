@@ -19,23 +19,25 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body>
+  
+  <table class="tgj"  width='100%'>
+    <tr>
+      <td width=100></td>
+      <td align=center class="judul"><b><font size="5">
+        <img src="/lte/logo.png" width="50">KOSMETIK RIZAL<br /></font></b>
+        <b>Jl Kelayan A Depan Gang PGA, Kelurahan Kelayan Kecamatan Banjarmasin Utara,<br> Kota Banjarmasin. Kalimantan Selatan 70129</b>
+      </td>
+      <td width=100></td>
+    </tr>
+  </table>
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
     <!-- title row -->
-    <div class="row">
-      <div class="col-12">
-        <h2 class="page-header">
-          <i class="fas fa-globe"></i> Kosmetik Rizal.
-            <small class="float-right">Date: {{\Carbon\Carbon::today()->format('d/m/Y')}}</small>
-        </h2>
-      </div>
-      <!-- /.col -->
-    </div>
     <!-- info row -->
     <div class="row invoice-info">
       <div class="col-sm-4 invoice-col">
-        From
+        Tanggal : {{\Carbon\Carbon::today()->format('d/m/Y')}}
         <address>
           <strong>Toko Kosmetik Rizal.</strong><br>
           Jl Pramuka Km 6 Gang Melati<br>

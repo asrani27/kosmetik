@@ -44,6 +44,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="/kategori" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="/supplier" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Supplier</p>
@@ -98,15 +104,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/retur_penjualan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Retur Penjualan</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/retur_pembelian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Retur Pembelian</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/pengeluaran" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengeluaran</p>
                 </a>
               </li>
             </ul>
@@ -126,6 +132,24 @@
                 <p>Lap. Stok Barang</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="/laporan/customer" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lap. Customer</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/laporan/supplier" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lap. Supplier</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/laporan/pengeluaran" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lap. Pengeluaran</p>
+              </a>
+            </li>
               <li class="nav-item">
                 <a href="/laporan/penjualan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -136,12 +160,6 @@
                 <a href="/laporan/pembelian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lap. Pembelian</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/laporan/returpenjualan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lap. Retur Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Barang;
 use App\Satuan;
+use App\Kategori;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -18,6 +19,7 @@ class BarangController extends Controller
     public function add()
     {
         $satuan = Satuan::all();
+        $kategori = Kategori::all();
         $check = Barang::all();
         if (count($check) == 0) {
             $kode = '0001';
@@ -33,7 +35,7 @@ class BarangController extends Controller
                 $kode = $number;
             }
         }
-        return view('backend.barang.add', compact('satuan', 'kode'));
+        return view('backend.barang.add', compact('satuan', 'kode', 'kategori'));
     }
 
     public function save(Request $req)
@@ -42,6 +44,7 @@ class BarangController extends Controller
         $s->kode = $req->kode;
         $s->nama = $req->nama;
         $s->satuan_id = $req->satuan_id;
+        $s->kategori_id = $req->kategori_id;
         $s->harga_beli = $req->harga_beli;
         $s->harga_jual = $req->harga_jual;
         $s->stok = $req->stok;
@@ -54,7 +57,8 @@ class BarangController extends Controller
     {
         $data = Barang::find($id);
         $satuan = Satuan::all();
-        return view('backend.barang.edit', compact('data', 'satuan'));
+        $kategori = Kategori::all();
+        return view('backend.barang.edit', compact('data', 'satuan', 'kategori'));
     }
 
     public function update(Request $req, $id)
@@ -62,6 +66,7 @@ class BarangController extends Controller
         $s = Barang::find($id);
         $s->nama = $req->nama;
         $s->satuan_id = $req->satuan_id;
+        $s->kategori_id = $req->kategori_id;
         $s->harga_beli = $req->harga_beli;
         $s->harga_jual = $req->harga_jual;
         $s->stok = $req->stok;
@@ -72,7 +77,7 @@ class BarangController extends Controller
 
     public function delete($id)
     {
-        $delete = Barang::find($id)->delete();
+        Barang::find($id)->delete();
         Alert::success('Data Berhasil Di Hapus', 'Info Message');
         return back();
     }

@@ -42,8 +42,18 @@
                     <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Satuan</label>
                       <div class="col-sm-10">
-                          <select name="satuan_id" class="form-control">
+                          <select name="satuan_id" class="form-control" required>
                               @foreach ($satuan as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option> 
+                              @endforeach
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
+                      <div class="col-sm-10">
+                          <select name="kategori_id" class="form-control" required>
+                              @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option> 
                               @endforeach
                           </select>

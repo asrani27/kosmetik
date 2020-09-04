@@ -54,6 +54,20 @@
                       </div>
                     </div>
                     <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
+                      <div class="col-sm-10">
+                          <select name="kategori_id" class="form-control" required>
+                              @foreach ($kategori as $item)
+                                @if($data->kategori_id == $item->id)
+                                <option value="{{$item->id}}" selected>{{$item->nama}}</option> 
+                                @else
+                                <option value="{{$item->id}}">{{$item->nama}}</option> 
+                                @endif
+                              @endforeach
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Beli</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" name="harga_beli" value="{{$data->harga_beli}}" >

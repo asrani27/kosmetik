@@ -85,7 +85,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-info btn-sm float-right">Tambah Ke Keranjang <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    {{-- <button type="submit" class="btn btn-info btn-sm float-right">Tambah Ke Keranjang <i class="fa fa-shopping-cart" aria-hidden="true"></i></button> --}}
                   </div>
                   <!-- /.card-footer -->
                 </form>

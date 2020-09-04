@@ -33,7 +33,6 @@
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
-    <!-- title row -->
     <!-- info row -->
     <div class="row invoice-info">
       <div class="col-sm-4 invoice-col">
@@ -49,10 +48,11 @@
       <div class="col-sm-4 invoice-col">
         <br><br><br>
         <address>
-            <h3><strong>LAPORAN PENJUALAN</strong></h3>
+            <h3><strong>LAPORAN SUPPLIER</strong></h3>
             
         </address>
       </div>
+      <!-- /.col -->
     </div>
     <!-- /.row -->
 
@@ -63,11 +63,9 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Tanggal</th>
-            <th>No Transaksi</th>
-            <th>Kustomer</th>
-            <th>Barang Yg Di Jual</th>
-            <th>Total</th>
+            <th>Nama Supplier</th>
+            <th>Alamat</th>
+            <th>No Telp</th>
           </tr>
           </thead>
           @php
@@ -77,36 +75,39 @@
               @foreach ($data as $item)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$item->created_at}}</td>
-                    <td>{{$item->no_transaksi}}</td>
-                    <td>{{$item->kustomer->nama}}</td>
-                    <td>
-                        <ul>
-                        @foreach ($item->penjualan_detail as $i)
-                            <li>{{$i->barang->nama}} - {{$i->jumlah}} buah - @currency($i->harga)</li>
-                        @endforeach
-                        </ul>
-                    </td>
-                    <td>@currency($item->total)</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->alamat}}</td>
+                    <td>{{$item->telp}}</td>
                 </tr>
               @endforeach
           </tbody>
-          <tfoot>
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="text-center">Grand Total</td>
-                  <td>@currency($data->sum('total'))</td>
-              </tr>
-          </tfoot>
-          
         </table>
       </div>
       <!-- /.col -->
     </div>
-    
+    <!-- /.row -->
+
+    {{-- <div class="row">
+      <!-- accepted payments column -->
+      <div class="col-6">
+        <p class="lead">Terima Kasih Telah Berbelanja:</p>
+      </div>
+      <!-- /.col -->
+      <div class="col-6">
+        <p class="lead">Total Pembayaran</p>
+
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th style="width:50%">Grand Total:</th>
+              <td>@currency($data->penjualan_detail->sum('subtotal'))</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- /.col -->
+    </div> --}}
+    <!-- /.row -->
   </section>
   <!-- /.content -->
 </div>

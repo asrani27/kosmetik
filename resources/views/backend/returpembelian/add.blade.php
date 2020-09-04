@@ -50,7 +50,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-info btn-sm float-right">Checkout <i class="fas fa-arrow-circle-right"></i></button>
+             
                   </div>
                   <!-- /.card-footer -->
                 </form>

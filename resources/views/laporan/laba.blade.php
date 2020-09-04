@@ -73,7 +73,7 @@
                     @foreach ($penjualan as $item)
                         
                     <tr>
-                      <td>{{$item->created_at}}</td>
+                      <td>{{\Carbon\Carbon::parse($item->created_at)->format('d M Y')}}</td>
                       <td>{{$item->no_transaksi}}</td>
                       <td>@currency($item->total)</td>
                     </tr>
@@ -97,7 +97,7 @@
           <div class="col-md-6">    
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Pembelian : @currency($pembelian->sum('total'))</h3>
+                <h3 class="card-title">Pengeluaran : @currency($pengeluaran->sum('jumlah'))</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -105,17 +105,17 @@
                   <thead>
                     <tr>
                       <th>Tanggal</th>
-                      <th>No Trans</th>
-                      <th>Total</th>
+                      <th>Nama Pengeluaran</th>
+                      <th>Jumlah</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($pembelian as $item)
+                    @foreach ($pengeluaran as $item)
                         
                     <tr>
-                      <td>{{$item->created_at}}</td>
-                      <td>{{$item->no_transaksi}}</td>
-                      <td>@currency($item->total)</td>
+                      <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                      <td>{{$item->nama}}</td>
+                      <td>@currency($item->jumlah)</td>
                     </tr>
                     @endforeach
                     
@@ -124,7 +124,7 @@
                     <tr>
                       <td></td>
                       <td></td>
-                      <td>@currency($pembelian->sum('total'))</td>
+                      <td>@currency($pengeluaran->sum('jumlah'))</td>
                     </tr>
                   </tfoot>
                 </table>
@@ -138,7 +138,7 @@
           <div class="col-12">
             <div class="card card-outline card-primary">
               <div class="card-body">
-                Laba :  @currency($penjualan->sum('total')) - @currency($pembelian->sum('total')) = @currency($penjualan->sum('total') - $pembelian->sum('total'))
+                Laba :  @currency($penjualan->sum('total')) - @currency($pengeluaran->sum('jumlah')) = @currency($penjualan->sum('total') - $pengeluaran->sum('jumlah'))
               </div>
             </div>
           </div>
