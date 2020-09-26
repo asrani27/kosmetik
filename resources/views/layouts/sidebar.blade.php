@@ -112,7 +112,7 @@
               <li class="nav-item">
                 <a href="/pengeluaran" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pengeluaran</p>
+                  <p>Beban Pengeluaran</p>
                 </a>
               </li>
             </ul>
@@ -153,7 +153,7 @@
               <li class="nav-item">
                 <a href="/laporan/penjualan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lap. Penjualan</p>
+                  <p>Lap. Pendapatan Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -171,7 +171,7 @@
               <li class="nav-item">
                 <a href="/laporan/laba" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lap. Laba</p>
+                  <p>Lap. Laba Rugi</p>
                 </a>
               </li>
             </ul>
